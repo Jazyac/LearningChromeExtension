@@ -1,0 +1,1 @@
+This Extension will add a grayscale percentage to the loaded webpage.
