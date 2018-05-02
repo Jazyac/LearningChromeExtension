@@ -1,0 +1,3 @@
+Icon-https://commons.wikimedia.org/wiki/File:Small-dark-grey-circle.svg
+
+https://www.sitepoint.com/create-chrome-extension-10-minutes-flat/

@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Grayscale Body",
+  "description": "This extension applies a grayscale percentage to the loaded webpage.",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+
+  "permissions": [
+   "activeTab"
+   ],
+
+   "content_scripts": [
+    {
+    "all_frames": false,
+    "matches": ["<all_urls>"],
+    "exclude_matches": [],
+    "js": ["jquery-3.3.1.min.js","content.js"]
+    }
+  ]
+}
