@@ -1,13 +1,40 @@
 
 
-// $('*[id*=logo]:visible').each(function() {
-//     console.log($(this).attr('id')); 
+//responding to background message
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+      console.log(sender.tab ?
+                  "from a content script:" + sender.tab.url :
+                  "from the extension");
+      if (request.ON == true){
+        sendResponse({farewell: true});
+        $('body').css("-webkit-filter","grayscale(50%)");
+      }
+      else{
 
-//  //   $(this).html('<img src="http://occasionalplanet.org/wp-content/uploads/2014/08/invisible-man.jpg" alt="Extension Image" />');
-// $(this).css("-webkit-filter","grayscale(50%)");
-// });
+        sendResponse({farewell: false});
+        $('body').css("-webkit-filter","grayscale(0%)");
 
 
+      }
+    });
 
 
-$('body').css("-webkit-filter","grayscale(50%)");
+// //sending to background
+// chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+//     console.log("asdasdasdasdasds");
+    
+//     // console.log(response.farewell);
+
+//     // if (request.ON == true){
+     
+//     //     $('body').css("-webkit-filter","grayscale(50%)");
+//     //   }
+//     //   else{
+
+      
+//     //     $('body').css("-webkit-filter","grayscale(0%)");
+
+
+//     //   }
+//   });
