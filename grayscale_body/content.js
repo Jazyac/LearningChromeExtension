@@ -20,21 +20,41 @@ chrome.runtime.onMessage.addListener(
     });
 
 
-// //sending to background
-// chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-//     console.log("asdasdasdasdasds");
+//sending to background
+// chrome.runtime.sendMessage({ON: "hello"}, function(response) {
+//    // console.log("asdasdasdasdasds");
     
 //     // console.log(response.farewell);
 
-//     // if (request.ON == true){
-     
-//     //     $('body').css("-webkit-filter","grayscale(50%)");
-//     //   }
-//     //   else{
-
+//     if (response == true){
+//       console.log("true");
+//         $('body').css("-webkit-filter","grayscale(50%)");
+//       }
+//       else{
+//         console.log("false");
       
-//     //     $('body').css("-webkit-filter","grayscale(0%)");
+//         $('body').css("-webkit-filter","grayscale(0%)");
 
 
-//     //   }
+//       }
 //   });
+chrome.runtime.sendMessage(
+    "",
+    function (response) {
+       
+            if (response == true){
+      console.log("true");
+        $('body').css("-webkit-filter","grayscale(50%)");
+      }
+      else{
+        console.log("false");
+      
+        $('body').css("-webkit-filter","grayscale(0%)");
+
+
+      }
+
+
+
+    }
+);

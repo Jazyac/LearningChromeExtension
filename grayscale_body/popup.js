@@ -27,11 +27,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }, false);
 }, false);
 
-// chrome.tabs.onMessage.addListener(
+// chrome.runtime.onMessage.addListener(
 //   function(request, sender, sendResponse) {
-//    // sendResponse({isOn: true});
-// console.log("bbbbbbb");
+//     sendResponse(true);
+// //console.log("bbbbbbb");
 
 
 
 //   });
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+      console.log("background.js got a message")
+      console.log(request);
+      console.log(sender);
+      sendResponse(isOn);
+  }
+);
