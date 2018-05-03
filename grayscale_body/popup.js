@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var turnON = document.getElementById('turnON');
   turnON.addEventListener('click', function() {
 
-console.log("clcik reached in popup,js");
+//console.log("clcik reached in popup,js");
+//alert("clcik reached in popup,js");
 
-
-    chrome.runtime.sendMessage({type: "backgroundSwitch"}, function(response) {
-      console.log(response.farewell);
+    chrome.runtime.sendMessage({type: "contentSwitch"}, function(response) {
+   //  alert(response.farewell);
     });
     //   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   //     chrome.tabs.sendMessage(tabs[0].id, {ON: isOn}, function(response) {

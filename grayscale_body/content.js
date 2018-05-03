@@ -1,5 +1,18 @@
 
 
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        alert("request received in content");
+      if (request.type == "contentSwitch"){
+      
+    
+        sendResponse({farewell: "goodbyeCOntetn"});
+      }
+    });
+
+
+
 // //responding to background message
 // chrome.runtime.onMessage.addListener(
 //     function(request, sender, sendResponse) {
