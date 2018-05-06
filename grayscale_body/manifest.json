@@ -11,19 +11,18 @@
   },
 
   "permissions": [
-   "activeTab"
+   "tabs"
    ],
    "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
 
-   "content_scripts": [
+  "content_scripts": [
     {
-    "all_frames": false,
-    "matches": ["<all_urls>"],
-    "exclude_matches": [],
-    "js": ["jquery-3.3.1.min.js","content.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery-3.3.1.min.js","content.js"]
     }
   ]
 } 
