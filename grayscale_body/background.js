@@ -1,68 +1,4 @@
-
-initialize();
-
-
-
-
-function initialize(){
-
-    if(!isSet()){
-
-
-        chrome.storage.local.set({isOn: false});
-
-    }
-
-    
-}
-
-function isSet(){
-
-
-  if( chrome.storage.local.get(['isOn']) == null){
-
-return false;
-
-  }
-
-return true;
-}
-
-
-
-function isOn(){
-
-   return chrome.storage.local.get(['isOn']);
-    
-}
-
-function setOnOff(isOn){
-   
-if(isSet()){
-
-    chrome.storage.local.set({isOn: !isOn});
-
-return;
-}
-
-initialize();
-
-
-
-
-}
-
-
-
-// chrome.storage.sync.set({key: value}, function() {
-//     console.log('Value is set to ' + value);
-//   });
-
-//   chrome.storage.sync.get(['key'], function(result) {
-//     console.log('Value currently is ' + result.key);
-//   });
-
-
+var isOn=false;
 // background.js
 
 // // Called when the user clicks on the browser action.
@@ -110,23 +46,16 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log("Message received by background.js-"+request.message);
 
-      if (request.message === "isOn"){
+      if (request.message == "contentJsSendsFetchCurrentStatus"){
       
-        sendResponse({message: "true"});
+        sendResponse({message: isOn});
       }
 
 
-      else if (request.message === "setOnOff"){
+      else if (request.message == "setOnOff"){
       
-      setOnOff();
+        isOn=!isOn;
       }
-else{
-
-    sendResponse({message: "asdasd"});
-
-}
-
-
     });
 
 

@@ -9,9 +9,9 @@ chrome.runtime.onMessage.addListener(
 
 
 chrome.runtime.sendMessage(
-  {"message": "isOn"},
+  {"message": "contentJsSendsFetchCurrentStatus"},
     function (response) {
-     console.log('Response received by content.js from background-'+response.message );
+       console.log('Response received by content.js from background-'+response.message );
 
             if (response.message == false){
       
@@ -27,7 +27,7 @@ chrome.runtime.sendMessage(
 
       }
 
-     // setOnOff();
+      setOnOff();
 
     }
 );
