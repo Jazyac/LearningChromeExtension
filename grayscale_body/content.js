@@ -2,14 +2,57 @@
 // content.js
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if( request.message === "clicked_browser_action" ) {
-      var firstHref = $("a[href^='http']").eq(0).attr("href");
+    if( request.message === "popupSendsButtonClicked" ) {
+      //var firstHref = $("a[href^='http']").eq(0).attr("href");
 
-      console.log(firstHref);
+      console.log('Message received by content.js-'+request.message);
+
+
+chrome.runtime.sendMessage(
+  {"message": "isOn"},
+    function (response) {
+     console.log('Response received by content.js from background-'+response.message );
+
+            if (response.message == false){
+      
+        $('body').css("-webkit-filter","grayscale(50%)");
+
+
+      }
+      else{
+   
+      
+        $('body').css("-webkit-filter","grayscale(0%)");
+
+
+      }
+
+     // setOnOff();
+
+    }
+);
+
+
+
     }
   }
 );
 
+function setOnOff(){
+
+  chrome.runtime.sendMessage(
+    {"message": "setOnOff"},
+      function (response) {
+       
+   
+  
+      }
+  );
+  
+
+
+
+}
 // // content.js
 // var firstHref = $("a[href^='http']").eq(0).attr("href");
 
