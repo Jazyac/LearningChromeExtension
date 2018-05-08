@@ -3,9 +3,9 @@
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
    
+      console.log(request.stateChanged);
       
-      
-      if (request.stateChanged == false){
+      if (request.stateChanged == true){
       
         $('body').css("-webkit-filter","grayscale(50%)");
 
@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
     
 
       }
-      else if(request.stateChanged == true){
+      else if(request.stateChanged == false){
        
       
         $('body').css("-webkit-filter","grayscale(0%)");
